@@ -6,12 +6,10 @@
         <title>{% block title %}Miss the Raid{% endblock %}</title>
 
         {% block stylesheets %}
-            <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
             {% stylesheets '../app/Resources/public/stylesheets/*' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
-
-            {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -42,7 +40,7 @@
     </div>
         {% block javascripts %}
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-            <script src="{{ asset('/js/bootstrap.js') }}"></script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
             {% javascripts
                 '../app/Resources/public/javascripts/*.js'

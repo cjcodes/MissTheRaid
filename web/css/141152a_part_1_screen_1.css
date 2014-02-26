@@ -6,3 +6,21 @@
 img {
   max-width: 100%;
 }
+
+/* line 10, ../sass/screen.scss */
+.glyphicon-none {
+  width: 14px;
+}
+
+/* line 14, ../sass/screen.scss */
+.strong {
+  font-weight: bold;
+}
+
+/* line 18, ../sass/screen.scss */
+.footer {
+  text-align: center;
+  margin-top: 5em;
+  padding-top: 1em;
+  border-top: 1px solid #eeeeee;
+}
