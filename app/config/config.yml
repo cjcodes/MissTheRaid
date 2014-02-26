@@ -84,13 +84,6 @@ fos_user:
         form:
             type: profile
 
-cypress_compass_elephant:
-    register_listener: false
-    compass_binary_path: "/usr/bin/bundle exec compass"
-    compass_projects:
-        gui_primary:
-            path: %kernel.root_dir%/Resources/public
-
 braincrafted_bootstrap:
     auto_configure:
         assetic: true
