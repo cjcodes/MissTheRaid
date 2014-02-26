@@ -66,7 +66,7 @@ class User extends BaseUser
      *
      * @param \MissTheRaid\UserBundle\Entity\Character $character
      */
-    public function removeCharacter(\MissTheRaid\UserBundle\Entity\Character $character)
+    public function removeCharacter(\MissTheRaid\CharacterBundle\Entity\Character $character)
     {
         $this->characters->removeElement($character);
     }
