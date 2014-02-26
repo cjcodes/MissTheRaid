@@ -8,11 +8,6 @@ miss_the_raid_main:
     type:     annotation
     prefix:   /
 
-miss_the_raid_user:
-    resource: "@MissTheRaidUserBundle/Controller/"
-    type:     annotation
-    prefix:   /user
-
 miss_the_raid_character:
     resource: "@MissTheRaidCharacterBundle/Controller/"
     type:     annotation
