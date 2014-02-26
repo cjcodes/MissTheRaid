@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    {% include 'MissTheRaidCharacterBundle:includes:guild-table.html.twig' with {'guilds': [guild] } %}
+</div>
+{% endblock %}

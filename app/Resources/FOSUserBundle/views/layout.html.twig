@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+        <h1>{% block page_title %}{% endblock %}</h1>
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    <div class="{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% block fos_user_content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

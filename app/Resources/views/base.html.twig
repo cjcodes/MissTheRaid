@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>{% block title %}Miss the Raid{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+            {% stylesheets '../app/Resources/public/stylesheets/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+
+            {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body style="padding-top: 50px; padding-bottom: 20px;">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ path('home') }}"><img src="/images/logo-white-horizontal.png" style="height: 100%" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          {% include ':partials:user.html.twig' %}
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    {% block body %}{% endblock %}
+
+
+    <div class="footer">
+    Copyright 2014 Miss the Raid | By <a href="http://cjcodes.com">cjcodes</a>
+    </div>
+        {% block javascripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script src="{{ asset('/js/bootstrap.js') }}"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+            {% javascripts
+                '../app/Resources/public/javascripts/*.js'
+            %}
+                <script src="{{ asset_url }}" /></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

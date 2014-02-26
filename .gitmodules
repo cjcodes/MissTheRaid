@@ -1,0 +1,3 @@
+[submodule "src/MissTheRaid/MainBundle/Resources/public/flat-ui"]
+	path = src/MissTheRaid/MainBundle/Resources/public/flat-ui
+	url = git@github.com:designmodo/Flat-UI.git

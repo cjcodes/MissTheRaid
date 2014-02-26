@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1>Add a character</h1>
+
+    {% for message in app.session.flashbag.get('error') %}
+    <p class="alert bg-danger">
+        {{ message }}
+    </p>
+    {% endfor %}
+
+    {{ form(form) }}
+
+</div>
+{% endblock %}

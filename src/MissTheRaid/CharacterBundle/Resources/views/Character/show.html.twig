@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    {% include 'MissTheRaidCharacterBundle:Character:character-header.html.twig' %}
+
+    <div class="container">
+    {% for message in app.session.flashbag.get('error') %}
+    <p class="alert bg-danger">
+        {{ message }}
+    </p>
+    {% endfor %}
+    {% if entity.verification is not null %}
+        <h2>To verify your character:</h2>
+        <ul>
+            <li>Make sure you have all of your gear equipped in all main slots (tabard and shirt don't matter)</li>
+            <li>Remove <strong>ONLY</strong> the following two pieces of gear:
+                <ul>
+                    {% for piece in entity.verification.pieces.empty %}
+                    <li class="strong">{{ piece|capitalize }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Log out of World of Warcraft</li>
+            <li>Click verify now below</li>
+        </ul>
+                <a href="{{ path('character_verify', {region: entity.realm.region, realm: entity.realm.slug, character: entity.name}) }}" class="btn btn-primary">Verify now</a>
+    {% else %}
+        <h2>{{ entity.name }} is verified!</h2>
+    {% endif %}
+    {% if entity.isMain != true %}
+        <a href="{{ path('make_main', {region: entity.realm.region, realm: entity.realm.slug, character: entity.name}) }}" class="btn btn-primary">Make my main</a>
+    {% else %}
+        <p class="lead">{{ entity.name }} is my main.</p>
+    {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="//cdn.jsdelivr.net/bootstrap.daterangepicker/1.2/daterangepicker.js"></script>
+<script>
+$('.bootstrap-date').parents('.form-group').hide();
+var $picker = $('<a class="btn btn-primary btn-lg">').text('Select a date');
+
+$('form[name="attendance"]').prepend($('<div class="form-group">').append(
+    $picker.daterangepicker({
+        ranges: {
+            'Today': [moment(), moment()],
+            'Tomorrow': [moment().add('days', 1), moment().add('days', 1)],
+            'A week from today': [moment().add('days', 7), moment().add('days', 7)],
+            'A week from tomorrow': [moment().add('days', 8), moment().add('days', 8)]
+        },
+        startDate: moment(),
+        endDate: moment().add('days', 30)
+    }, function (start, end) {
+        $('select[name="attendance[startDate][year]"]').val(start.year());
+        $('select[name="attendance[startDate][month]"]').val(start.month()+1);
+        $('select[name="attendance[startDate][day]"]').val(start.date());
+
+        $('select[name="attendance[endDate][year]"]').val(end.year());
+        $('select[name="attendance[endDate][month]"]').val(end.month()+1);
+        $('select[name="attendance[endDate][day]"]').val(end.date());
+
+        var startCal = start.calendar();
+        var endCal = end.calendar();
+        if (startCal == endCal) {
+            $picker.text(startCal);
+        } else {
+            $picker.text(startCal + ' through ' + endCal);
+        }
+    })
+));
+
+if ($('#attendance_character').length == 1) {
+    $('#attendance_character').parent().hide();
+}
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/1.2/daterangepicker-bs3.css" />
+{% endblock %}
+
+{% block body %}
+<div class="container">
+{% block form %}{% endblock %}
+</div>
+{% endblock %}

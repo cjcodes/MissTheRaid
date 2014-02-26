@@ -1,0 +1,31 @@
+{% for guild in guilds %}
+    <h3>{{ guild }}</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Character</th>
+                <th>Will miss the raid</th>
+            </tr>
+        <tbody>
+        {% for member in guild.characters %}
+            <tr>
+                <td class="strong">{{ member.name }}</td>
+                <td>
+                    <ul>
+                    {% for entry in member.attendance %}
+                        {% if entry.startDate > date('-1day') %}
+                            <li>
+                                <span class="pretty-date">{{ entry.startDate|date("m/d/Y") }}</span>
+                                {% if entry.startDate < entry.endDate %}
+                                    through <span class="pretty-date">{{ entry.endDate|date("m/d/Y") }}</span>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endfor %}

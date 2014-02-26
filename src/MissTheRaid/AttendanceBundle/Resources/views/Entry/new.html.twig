@@ -1,0 +1,15 @@
+{% extends 'MissTheRaidAttendanceBundle::base.html.twig' %}
+
+{% block form -%}
+    <div class="row">
+        <div class="col-md-6">
+            {% include 'MissTheRaidCharacterBundle:includes:guild-table.html.twig' %}
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+            <h2>I'm going to miss the raid...</h2>
+
+            {{ form(form) }}
+        </div>
+    </div>
+
+{% endblock %}

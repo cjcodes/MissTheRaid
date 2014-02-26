@@ -1,0 +1,3 @@
+services:
+    wow:
+        class: MissTheRaid\WowBundle\Service\Wow
