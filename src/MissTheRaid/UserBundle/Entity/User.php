@@ -54,7 +54,7 @@ class User extends BaseUser
      * @param \MissTheRaid\UserBundle\Entity\Character $character
      * @return User
      */
-    public function addCharacter(\MissTheRaid\UserBundle\Entity\Character $character)
+    public function addCharacter(\MissTheRaid\CharacterBundle\Entity\Character $character)
     {
         $this->characters[] = $character;
 
@@ -107,7 +107,7 @@ class User extends BaseUser
     /**
      * Get main
      *
-     * @return \MissTheRaid\CharacterBundle\Entity\Character 
+     * @return \MissTheRaid\CharacterBundle\Entity\Character
      */
     public function getMain()
     {
