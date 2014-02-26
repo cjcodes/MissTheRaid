@@ -84,3 +84,6 @@ fos_user:
         form:
             type: profile
 
+braincrafted_bootstrap:
+    auto_configure:
+        assetic: false

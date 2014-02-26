@@ -40,7 +40,9 @@
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle":"dev-master",
 
-        "cypresslab/compass-elephant-bundle": "dev-master"
+        "cypresslab/compass-elephant-bundle": "dev-master",
+        "braincrafted/bootstrap-bundle": "~2.0",
+        "twbs/bootstrap": "3.1.*"
     },
     "scripts": {
         "post-install-cmd": [
