@@ -36,6 +36,8 @@ class CharacterRepository extends EntityRepository
             ->leftJoin('MissTheRaidUserBundle:User', 'u', 'WITH', $qb->expr()->eq('u.main', 'c'))
             ->orderBy('u.main', 'DESC')
             ->addOrderBy('c.name', 'DESC')
+            ->where($qb->expr()->eq('c.user', ':user'))
+            ->setParameter('user', $user)
         ;
 
         return $qb;
